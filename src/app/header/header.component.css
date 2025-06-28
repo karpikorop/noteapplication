@@ -1,0 +1,31 @@
+/* Базові стилі для nb-actions, щоб він займав всю ширину хедера */
+nb-actions {
+    width: 100%;
+    display: flex; /* nb-actions вже flex, але це нагадування */
+    justify-content: flex-start; /* Вирівнювання елементів в actions */
+    align-items: center; /* Центрування по вертикалі */
+    height: 100%; /* Займаємо всю висоту хедера */
+    cursor: default;
+}
+
+/* Стилі для посилань всередині nb-action */
+nb-action a {
+    cursor: default;
+    text-decoration: none; /* Прибираємо підкреслення */
+    color: var(--text-basic-color); /* Використовуємо змінну теми Nebular для кольору тексту */
+    font-weight: bold;
+}
+
+/* Стиль для посилання на логотип/назву сайту */
+.logo-link {
+    cursor: default;
+    font-size: 1.2rem;
+    /* Відступ від елементів меню */
+}
+
+/* Стилі для окремих елементів дій, якщо потрібно */
+.control-item {
+    cursor: pointer;
+   /* Відступ між елементами меню */
+    /* Можна додати стилі для ховеру, якщо nb-actions не надає їх автоматично */
+}

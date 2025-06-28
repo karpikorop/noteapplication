@@ -1,0 +1,71 @@
+
+<ng-template #confirmDialog let-ref="dialogRef">
+    <nb-card>
+        <nb-card-header>
+            <h4>Delete note?</h4>
+        </nb-card-header>
+        <nb-card-footer>
+            <div class="actions">
+                <button nbButton size="small" (click)="ref.close(false)">Cancel</button>
+                <button nbButton size="small" status="danger" (click)="ref.close(true)">Delete</button>
+            </div>
+        </nb-card-footer>
+    </nb-card>
+</ng-template>
+
+
+<nb-card>
+
+    @if (!isEdited) {
+        <nb-card-header>
+            <h1>
+                {{note.title}}
+            </h1>
+            <p *ngIf="note.createdAt" class="note-meta">
+                Created: {{ note.createdAt | date: 'short' }}
+            </p>
+        </nb-card-header>
+    }
+
+    @if (!isEdited && note.content !== '') {
+        <nb-card-body>
+            {{note.content}}
+        </nb-card-body>
+    }
+
+    @if (!isEdited) {
+        <nb-card-footer>
+            <div class="actions">
+                <button nbButton size="small" (click)="startEdit()">
+                    Edit
+                </button>
+                <button nbButton ghost status="danger" size="small" (click)="onDeleteNote(confirmDialog)">
+                    Delete
+                </button>
+            </div>
+        </nb-card-footer>
+    }
+
+    @else {
+        <form [formGroup]="editForm" (ngSubmit)="saveEdit(note)">
+            <nb-card-header>
+                <input type="text" nbInput fullWidth formControlName="title">
+            </nb-card-header>
+            <nb-card-body>
+                <textarea nbInput fullWidth formControlName="content" rows="4"></textarea>
+            </nb-card-body>
+            <nb-card-footer>
+                <div class="actions">
+                    <button nbButton status="basic" size="small" (click)="cancelEdit()">
+                        Скасувати
+                    </button>
+                    <button nbButton status="success" size="small" type="submit" [disabled]="editForm.invalid">
+                        Зберегти
+                    </button>
+                </div>
+            </nb-card-footer>
+        </form>
+    }
+
+</nb-card>
+

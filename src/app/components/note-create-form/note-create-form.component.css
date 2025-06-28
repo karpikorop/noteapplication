@@ -1,0 +1,29 @@
+.create-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.create-form nb-card-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+.actions {
+    display: flex;
+    gap: 10px;
+}
+.create-form textarea {
+    resize: vertical;
+    height: 100px;
+}
+form{
+
+}
+input[nbInput],
+textarea[nbInput] {
+    font-weight: lighter !important;
+}
+.form-group {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+

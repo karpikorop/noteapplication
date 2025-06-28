@@ -1,0 +1,10 @@
+<nb-actions size="small">
+    <nb-action>
+        <span class="logo-link">Notes App</span>
+    </nb-action>
+
+    <nb-action *ngFor="let item of items" [routerLink]="item.link" class="control-item">
+        <span>{{ item.title }}</span>
+    </nb-action>
+
+</nb-actions>

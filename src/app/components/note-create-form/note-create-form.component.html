@@ -1,0 +1,18 @@
+<form [formGroup]="newNoteForm" (ngSubmit)="onSaveNote()" class="create-form">
+    <nb-card class="create-form">
+        <nb-card-header><h4>Add New Note</h4></nb-card-header>
+        <nb-card-body>
+            <div class="form-group">
+                <input type="text" nbInput fullWidth placeholder="Title" formControlName="title">
+            </div>
+
+                <textarea nbInput fullWidth placeholder="Content..." formControlName="content"></textarea>
+        </nb-card-body>
+        <nb-card-footer>
+            <div class="actions">
+                <button nbButton status="basic" size="small" (click)="onCancel()">Cancel</button>
+                <button nbButton status="success" type="submit" size="small" [disabled]="newNoteForm.invalid">Save</button>
+            </div>
+        </nb-card-footer>
+    </nb-card>
+</form>

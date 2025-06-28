@@ -1,0 +1,52 @@
+.notes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+}
+
+.search-container{
+    max-width: 600px;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.search-container h3{
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding:0;
+}
+.search-container input{
+
+}
+.search-container input[nbInput] {
+    background-color: white;
+}
+.search-container input[nbInput]:focus {
+    background-color: white;
+}
+.search-container  button[nbButton] {
+    background-color: white;
+    border: 1px solid #dee2e8;
+    color: #222b45;
+
+}
+
+.search-container input[nbInput]:hover {
+    background-color: white;
+}
+/* Ми робимо селектор сильнішим, додаючи стандартні класи Nebular */
+.search-container input[nbInput]:hover {
+    background-color: white !important;
+}
+
+/* Про всяк випадок, додамо стиль і для стану фокусу (коли клікнули на поле) */
+.search-container input[nbInput]:focus {
+    background-color: white !important;
+}

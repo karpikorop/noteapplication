@@ -1,0 +1,34 @@
+
+<div class="notes-container">
+    <!--
+    <app-note-create-form
+        (noteAdded)="onSaveNote($event)"
+    ></app-note-create-form>
+    -->
+
+
+    <div class="search-container">
+        <button nbButton outline #createNoteBtn
+                size="small" shape="round" (click)="openCreateNoteDialog()">Create Note</button>
+        <input type="text" nbInput shape="round" fullWidth [formControl]="searchControl" placeholder="Type to search a note">
+    </div>
+
+    @if ((state$ | async); as state) {
+        @switch (state.status) {
+            @default {
+                <p>{{state.status}}</p>
+            }
+            @case (Status.Success) {
+                @for (note of state.data; track note.id){
+                    <app-note-card
+                        [note]="note"
+                        (noteDeleted)="onDeleteNote($event)"
+                        (noteUpdated)="saveEdit($event)">
+                    </app-note-card>
+                }
+            }
+        }
+    }
+
+
+</div>
